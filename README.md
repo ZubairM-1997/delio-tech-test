@@ -10,7 +10,7 @@ Your job is to create a web application that uses the Finnhub API (https://finnh
 
 To complete this task, you'll need to:
 
-* Create a web application with Node & TypeScript
+* Create a API web application with Node & TypeScript
 * Retrieve share value of MSFT and APPL shares from finnhub
 * Store share values in a database
 * Read the values from the database and run profit & loss calculation on both MSFT & APPL shares
