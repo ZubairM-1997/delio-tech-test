@@ -54,7 +54,7 @@ export const checkCheapestStock = async (req, res) => {
         const stocks : StockData[] =  allStocks.map((stock) => stock.toJSON())
         
         const cheapestStock : StockData = stocks.reduce((prev : any, curr: any) => {
-            return prev.current_price < curr.current_price ? prev.name : curr.name
+            return parseFloat(prev.current_price) < parseFloat(curr.current_price) ? prev.name : curr.name
         })
     
         return res.json({
@@ -73,7 +73,7 @@ export const checkMostFluctuating = async (req,  res) => {
         const stocks : StockData[] = await allStocks.map((stock) => stock.toJSON())
         
         const mostFluctuating : StockData = stocks.reduce((prev : any , curr: any) => {
-            return prev.percent_change > curr.percent_change ? prev.name : curr.name
+            return parseFloat(prev.percent_change) > parseFloat(curr.percent_change) ? prev.name : curr.name
         })
     
         return res.json({
@@ -91,7 +91,7 @@ export const checkHighestOpenPrice = async (req, res) => {
         const stocks : StockData[] = await allStocks.map((stock) => stock.toJSON())
         
         const highestOpenPrice : StockData = stocks.reduce((prev : any , curr: any) => {
-            return prev.open_price > curr.open_price ? prev.name : curr.name
+            return parseFloat(prev.open_price) > parseFloat(curr.open_price) ? prev.name : curr.name
         })
     
         return res.json({
