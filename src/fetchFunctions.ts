@@ -8,6 +8,6 @@ const fetchOptions = {
   }
 
 
-export const microsoftShares =  () => fetch(`https://finnhub.io/api/v1/quote?symbol=MSFT&token=${process.env.API_TOKEN}`, fetchOptions).then((res) => res.json())
 
-export const appleShares = () => fetch(`https://finnhub.io/api/v1/quote?symbol=AAPL&token=${process.env.API_TOKEN}`, fetchOptions).then((res) => res.json())
+
+export const fetchShares = (ticker: string) => fetch(`https://finnhub.io/api/v1/quote?symbol=${ticker}&token=${process.env.API_TOKEN}`, fetchOptions).then((res) => res.json())
