@@ -20,3 +20,33 @@ To complete this task, you'll need to:
 ## How to submit 🔗
 
 - Share a link to a public or private repository on GitHub.
+
+
+## How to start
+1) First, we have to install the dependancies, which can easily done by entering 'yarn install' on the terminal
+2) Secondly, make sure you have postgres and pgAdmin (or an alternative) installed on your local machine
+3) You should create a database within the postgres shell, then enter the relevant environment variables within .env and config/config.json
+4) To create the migrations within your database, enter 'yarn migrate' (to rollback the migration, enter 'yarn rollback')
+5) start the development server by entering 'yarn dev' which will start the server on localhost:7000
+6) To run the tests, enter the command 'yarn test' on the terminal
+
+## Reasoning for using Postgres
+Most financial institutions use PostgreSQL for their systems as they follow the ACID principles. Since this project is finance-based, it just made sense for me to follow that pattern.
+
+## Bonus Features 
+/currentCheapestStock - finds out the cheapest stock from database from their current price
+/mostFluctuating - finds out the most volatile stock from database from their percentage change value
+/highestOpenPrice - finds out which stock has the highest opening price from the database
+
+## Considerations for Improvement
+If this application has the potential to scale, I can see how adding a cacheing layer like Redis would be beneficial 
+
+There would be 2 strategies that would be optimal in my view
+
+1) Cache-Aside Pattern, where the application code always communicates with the cache but not the database, the benefit being, as soon as data is read from database, the application code caches the data, so the next time, if the same data is being requested, then the application reads from the cache, which will improve perfomance, an advantage of that would be that if the cacheing layer fails, the application as a whole will not fail.
+
+2) Write Around Pattern
+This is when the cacheing layer sits directly between the application code and database, however this strategy works if the application is write heavy, for this MVP, we are just reading into the database mainly (theres only 2 instances of writing into the database when the server is starting). So this strategy for now, would be a bit overkill
+
+
+
