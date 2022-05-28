@@ -34,9 +34,9 @@ To complete this task, you'll need to:
 Most financial institutions use PostgreSQL for their systems as they follow the ACID principles. Since this project is finance-based, it just made sense for me to follow that pattern.
 
 ## Bonus Features 
-/currentCheapestStock - finds out the cheapest stock from database from their current price
-/mostFluctuating - finds out the most volatile stock from database from their percentage change value
-/highestOpenPrice - finds out which stock has the highest opening price from the database
+1) /currentCheapestStock - finds out the cheapest stock from database from their current price
+2) /mostFluctuating - finds out the most volatile stock from database from their percentage change value
+3) /highestOpenPrice - finds out which stock has the highest opening price from the database
 
 ## Considerations for Improvement
 If this application has the potential to scale, I can see how adding a cacheing layer like Redis would be beneficial 
