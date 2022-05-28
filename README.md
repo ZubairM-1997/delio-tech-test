@@ -51,3 +51,11 @@ This is when the cacheing layer sits directly between the application code and d
 
 
 PS: If you come across any Typescript errors that state sequelize isn't being imported / sequelize module cannot be found, just simply uninstall it by entering 'yarn remove sequelize' then install it by entering 'yarn add sequelize'. Further investigation needed why this error was occuring
+
+## Technologies used
+1) Express.js
+2) Node.js
+3) Mocha.js
+4) Chai.js
+5) PostgreSQL
+6) Sequelize
