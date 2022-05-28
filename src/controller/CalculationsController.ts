@@ -52,13 +52,14 @@ export const checkCheapestStock = async (req, res) => {
     try {
         const allStocks = await StockInfo.findAll({});
         const stocks : StockData[] =  allStocks.map((stock) => stock.toJSON())
+        console.log(stocks)
         
         const cheapestStock : StockData = stocks.reduce((prev : any, curr: any) => {
-            return parseFloat(prev.current_price) < parseFloat(curr.current_price) ? prev.name : curr.name
+            return parseFloat(prev.current_price) < parseFloat(curr.current_price) ? prev : curr
         })
     
         return res.json({
-            cheapest: `${cheapestStock} is currently the cheapest at the moment` 
+            cheapest: `${cheapestStock.name} is currently the cheapest at the moment` 
         })
 
     } catch(error){
@@ -73,11 +74,11 @@ export const checkMostFluctuating = async (req,  res) => {
         const stocks : StockData[] = await allStocks.map((stock) => stock.toJSON())
         
         const mostFluctuating : StockData = stocks.reduce((prev : any , curr: any) => {
-            return parseFloat(prev.percent_change) > parseFloat(curr.percent_change) ? prev.name : curr.name
+            return parseFloat(prev.percent_change) > parseFloat(curr.percent_change) ? prev : curr
         })
     
         return res.json({
-            mostFluctuatingStock: `${mostFluctuating} is the most volatile stock at the moment` 
+            mostFluctuatingStock: `${mostFluctuating.name} is the most volatile stock at the moment` 
         })
     } catch(error){
         console.log(error)
@@ -91,11 +92,11 @@ export const checkHighestOpenPrice = async (req, res) => {
         const stocks : StockData[] = await allStocks.map((stock) => stock.toJSON())
         
         const highestOpenPrice : StockData = stocks.reduce((prev : any , curr: any) => {
-            return parseFloat(prev.open_price) > parseFloat(curr.open_price) ? prev.name : curr.name
+            return parseFloat(prev.open_price) > parseFloat(curr.open_price) ? prev : curr
         })
     
         return res.json({
-            highestOpenPrice: `${highestOpenPrice} opened with the highest price` 
+            highestOpenPrice: `${highestOpenPrice.name} opened with the highest price` 
         })
 
     } catch (error){
