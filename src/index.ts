@@ -38,9 +38,7 @@ app.listen(PORT, async () => {
         high_price: apple.h,
         low_price: apple.l,
         open_price: apple.o,
-        previous_close_price: apple.pc,
-        createdAt: null,
-        updatedAt: null
+        previous_close_price: apple.pc
       })
   
       const microSoftInstance = await StockInfo.create({
@@ -51,9 +49,7 @@ app.listen(PORT, async () => {
         high_price: microsoft.h,
         low_price: microsoft.l,
         open_price: microsoft.o,
-        previous_close_price: microsoft.pc,
-        createdAt: null,
-        updatedAt: null
+        previous_close_price: microsoft.pc
       })
     } else {
 
